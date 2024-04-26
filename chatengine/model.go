@@ -10,10 +10,10 @@ var (
 type Config struct {
 	AccessKey string
 	SecretKey string
-	Model     string
 }
 
 type ChatReq struct {
+	Model           string    `json:"-"`
 	Messages        []Message `json:"messages"`
 	MaxOutputTokens int       `json:"max_output_tokens"`
 	Stream          bool      `json:"stream"`

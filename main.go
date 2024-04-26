@@ -13,11 +13,11 @@ func main() {
 	cfg := chatengine.Config{
 		AccessKey: os.Getenv("QIANFAN_ACCESS_KEY"),
 		SecretKey: os.Getenv("QIANFAN_SECRET_KEY"),
-		Model:     "llama_3_8b",
 	}
 	engine := chatengine.NewEngine(cfg)
 
 	req := chatengine.ChatReq{
+		Model: "llama_3_8b",
 		Messages: []chatengine.Message{
 			{Role: "user", Content: "北京有什么好玩的景点？用中文回答"},
 		},

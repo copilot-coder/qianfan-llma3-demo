@@ -99,7 +99,7 @@ func (e *Engine) prepare(ctx context.Context, req *ChatReq) (*http.Response, err
 		return nil, err
 	}
 
-	urlStr := "https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/" + strings.ToLower(e.cfg.Model)
+	urlStr := "https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/" + strings.ToLower(req.Model)
 	request, err := http.NewRequestWithContext(ctx, http.MethodPost, urlStr, bytes.NewBuffer(jsonValue))
 	if err != nil {
 		return nil, err
@@ -121,6 +121,5 @@ func (e *Engine) prepare(ctx context.Context, req *ChatReq) (*http.Response, err
 	signStr := bceSign(e.cfg.AccessKey, e.cfg.SecretKey, request.URL.RequestURI(), request.Method, nil, headers, headersToSign)
 	request.Header.Set(AUTHORIZATION, signStr)
 
-	httpClient := &http.Client{}
-	return httpClient.Do(request)
+	return e.httpClient.Do(request)
 }
