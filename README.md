@@ -1,6 +1,6 @@
 # 概要
 
-- 本项目用于演示如何通过Golang接入百度千帆大模型平台的Meta Llama 3大语言模型。支持流式输出和非流式输出
+- 本项目用于演示如何通过Golang接入百度千帆大模型平台的Meta Llama 3大语言模型。支持流式响应和非流式响应
 - 百度云Meta Llama 3接口文档：https://cloud.baidu.com/doc/WENXINWORKSHOP/s/ilv62om62
 - 鉴权方式采用基于安全认证Access Key/Secret Key进行签名计算鉴权
   - 获取Access Key和Secret Key的步骤可参考：https://mp.weixin.qq.com/s/_HLe_OK7NuFSqwK_9LwF4Q

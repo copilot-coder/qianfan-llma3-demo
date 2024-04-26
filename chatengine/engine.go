@@ -25,7 +25,7 @@ func NewEngine(cfg Config) *Engine {
 	}
 }
 
-// 流式输出
+// 流式响应
 func (e *Engine) StreamRequest(ctx context.Context, req ChatReq) (chan *ChatResponse, error) {
 	req.Stream = true
 	httpResp, err := e.prepare(ctx, &req)
@@ -54,6 +54,7 @@ func (e *Engine) StreamRequest(ctx context.Context, req ChatReq) (chan *ChatResp
 	return ch, nil
 }
 
+// 非流式响应
 func (e *Engine) ChatRequest(ctx context.Context, req ChatReq) (*ChatResponse, error) {
 	req.Stream = false
 	httpResp, err := e.prepare(ctx, &req)
